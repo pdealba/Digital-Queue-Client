@@ -14,7 +14,7 @@ function Client() {
   return (
     <div>
       {typeof backendData === "undefined" ? (
-        <p>Loading...</p>
+        <p>Loading!</p>
       ) : (
         <ul>
           {backendData.map((userData, i) => (
