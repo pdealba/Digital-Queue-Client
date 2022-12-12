@@ -1,18 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Chat from "./components/Chat/Chat";
-import Header from "./components/Layout/Header";
+import Layout from "./components/hoc/Layout/Layout";
 import Timer from "./components/Timer/Timer";
 
 function App() {
   return (
-    <>
-      <Header />
+    <Layout>
       <Routes>
         <Route path="/timer" element={<Timer />} />
         <Route path="/chat" element={<Chat />} />
       </Routes>
-    </>
+    </Layout>
   );
 }
 
