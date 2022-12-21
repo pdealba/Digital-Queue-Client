@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [userName, setUserName] = useState("");
@@ -7,10 +8,11 @@ const Form = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Send the POST request to the server using fetch
     fetch("/admin/add-new-user", {
       method: "POST",
       headers: {
@@ -24,7 +26,7 @@ const Form = () => {
       }),
     })
       .then((data) => {
-        console.log(data);
+        console.log("Form fetch post data sent");
       })
       .catch((error) => {
         console.error(error);
@@ -75,7 +77,14 @@ const Form = () => {
         />
       </label>
       <br />
-      <button type="submit">Submit</button>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+        type="submit"
+      >
+        Submit
+      </button>
     </form>
   );
 };
